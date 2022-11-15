@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221115110642) do
+ActiveRecord::Schema.define(version: 20221115130028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20221115110642) do
     t.string   "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "emp_attendances", force: :cascade do |t|
+    t.date     "status_date"
+    t.time     "in_time"
+    t.time     "out_time"
+    t.integer  "employee_detail_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["employee_detail_id"], name: "index_emp_attendances_on_employee_detail_id", using: :btree
   end
 
   create_table "employee_details", force: :cascade do |t|
@@ -38,4 +48,5 @@ ActiveRecord::Schema.define(version: 20221115110642) do
     t.index ["department_id"], name: "index_employee_details_on_department_id", using: :btree
   end
 
+  add_foreign_key "emp_attendances", "employee_details"
 end

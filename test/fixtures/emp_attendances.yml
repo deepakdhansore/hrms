@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status_date: 2022-11-15
+  In_time: 2022-11-15 17:59:04
+  Out_time: 2022-11-15 17:59:04
+  employee_detail: one
+
+two:
+  status_date: 2022-11-15
+  In_time: 2022-11-15 17:59:04
+  Out_time: 2022-11-15 17:59:04
+  employee_detail: two
