@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221115102029) do
+ActiveRecord::Schema.define(version: 20221115110642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "no_of_emp"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "employee_details", force: :cascade do |t|
     t.string   "first_name"
@@ -26,6 +34,8 @@ ActiveRecord::Schema.define(version: 20221115102029) do
     t.date     "hire_date"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "department_id"
+    t.index ["department_id"], name: "index_employee_details_on_department_id", using: :btree
   end
 
 end
