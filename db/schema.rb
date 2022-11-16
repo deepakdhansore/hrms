@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221116064453) do
+ActiveRecord::Schema.define(version: 20221116112842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,41 +27,45 @@ ActiveRecord::Schema.define(version: 20221116064453) do
     t.date     "status_date"
     t.time     "in_time"
     t.time     "out_time"
-    t.integer  "employee_detail_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.datetime "total_hour"
-    t.index ["employee_detail_id"], name: "index_emp_attendances_on_employee_detail_id", using: :btree
   end
 
   create_table "emp_leaves", force: :cascade do |t|
-    t.integer  "employee_detail_id"
     t.datetime "startdate"
     t.datetime "enddate"
     t.string   "reason"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["employee_detail_id"], name: "index_emp_leaves_on_employee_detail_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "employee_details", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "phone_number"
-    t.string   "address"
-    t.integer  "date_of_birth"
-    t.integer  "gender",        default: 0
-    t.date     "hire_date"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "department_id"
-    t.string   "username"
-    t.string   "password"
+  create_table "employees", force: :cascade do |t|
+    t.string   "first_name",             default: "", null: false
+    t.string   "last_name",              default: "", null: false
+    t.string   "phone_number",           default: "", null: false
+    t.string   "address",                default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.integer  "gender",                 default: 0
+    t.integer  "age"
+    t.datetime "hire_date"
+    t.datetime "date_of_birth"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "designation"
-    t.index ["department_id"], name: "index_employee_details_on_department_id", using: :btree
+    t.string   "city"
+    t.string   "country"
+    t.integer  "martial_status",         default: 0
+    t.string   "father_name"
+    t.string   "mother_name"
+    t.integer  "department_id"
+    t.index ["department_id"], name: "index_employees_on_department_id", using: :btree
+    t.index ["email"], name: "index_employees_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "emp_attendances", "employee_details"
-  add_foreign_key "emp_leaves", "employee_details"
 end
