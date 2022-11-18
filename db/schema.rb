@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221117123925) do
+ActiveRecord::Schema.define(version: 20221118070342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,15 +41,7 @@ ActiveRecord::Schema.define(version: 20221117123925) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "departments", force: :cascade do |t|
-    t.string   "type"
-    t.integer  "no_of_emp"
-    t.string   "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "emp_attendances", force: :cascade do |t|
+  create_table "attendances", force: :cascade do |t|
     t.date     "status_date"
     t.time     "in_time"
     t.time     "out_time"
@@ -57,27 +49,15 @@ ActiveRecord::Schema.define(version: 20221117123925) do
     t.datetime "updated_at",  null: false
     t.datetime "total_hour"
     t.integer  "employee_id"
-    t.index ["employee_id"], name: "index_emp_attendances_on_employee_id", using: :btree
+    t.index ["employee_id"], name: "index_attendances_on_employee_id", using: :btree
   end
 
-  create_table "emp_leaves", force: :cascade do |t|
-    t.datetime "startdate"
-    t.datetime "enddate"
-    t.string   "reason"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "employee_id"
-    t.index ["employee_id"], name: "index_emp_leaves_on_employee_id", using: :btree
-  end
-
-  create_table "emp_salaries", force: :cascade do |t|
-    t.datetime "fromdate"
-    t.datetime "todate"
-    t.float    "salary"
-    t.integer  "employee_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["employee_id"], name: "index_emp_salaries_on_employee_id", using: :btree
+  create_table "departments", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "no_of_emp"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -108,5 +88,25 @@ ActiveRecord::Schema.define(version: 20221117123925) do
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "emp_salaries", "employees"
+  create_table "leaves", force: :cascade do |t|
+    t.datetime "startdate"
+    t.datetime "enddate"
+    t.string   "reason"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "employee_id"
+    t.index ["employee_id"], name: "index_leaves_on_employee_id", using: :btree
+  end
+
+  create_table "salaries", force: :cascade do |t|
+    t.datetime "fromdate"
+    t.datetime "todate"
+    t.float    "salary"
+    t.integer  "employee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["employee_id"], name: "index_salaries_on_employee_id", using: :btree
+  end
+
+  add_foreign_key "salaries", "employees"
 end
