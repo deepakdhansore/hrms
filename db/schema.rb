@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221118070342) do
+ActiveRecord::Schema.define(version: 20221118074718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,7 @@ ActiveRecord::Schema.define(version: 20221118070342) do
   end
 
   create_table "departments", force: :cascade do |t|
-    t.string   "type"
-    t.integer  "no_of_emp"
+    t.string   "name"
     t.string   "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,14 +75,11 @@ ActiveRecord::Schema.define(version: 20221118070342) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "designation"
     t.string   "city"
     t.string   "country"
     t.integer  "martial_status",         default: 0
     t.string   "father_name"
     t.string   "mother_name"
-    t.integer  "department_id"
-    t.index ["department_id"], name: "index_employees_on_department_id", using: :btree
     t.index ["email"], name: "index_employees_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree
   end
