@@ -52,6 +52,16 @@
     <%= f.radio_button :martial_status, 'Unmarried' %> Unmarried
    
   </td></tr>
+
+  <tr> <td class="field">
+    <%= f.label :date_of_birth ,"Date of Birth" %><br />
+   <%= f.datetime_local_field :date_of_birth%>
+  </td>
+  
+ <td class="field">
+    <%= f.label :hire_date ,"Date of Joining" %><br />
+   <%= f.datetime_local_field :hire_date%>
+  </td> </tr>
   </table>
   
   
@@ -61,27 +71,9 @@
   
 
  
-<div class="field">
-    <%= f.label :date_of_birth ,"Date of Birth" %><br />
-   <%= f.datetime_local_field :date_of_birth%>
-  </div>
+
   
- <div class="field">
-    <%= f.label :hire_date ,"Date of Joining" %><br />
-   <%= f.datetime_local_field :hire_date%>
-  </div>
-  
-   <div class="field">
-    <%= f.label :department_id ,"Department" %> 
-    <%= f.radio_button :department_id, '1' %> Human Resource
-     <%= f.radio_button :department_id, '2'%> IT Services
-      
    
-  </div>
-  <div class="field">
-    <%= f.label :designation ,"Designation" %><br />
-    <%= f.text_field :designation, autofocus: true, autocomplete: "designation" %>
-  </div>
    <div class="field">
     <%= f.label :city ,"City" %><br />
     <%= f.text_field :city, autofocus: true%>

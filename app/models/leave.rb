@@ -1,3 +1,3 @@
-class EmpLeave< ApplicationRecord
+class Leave< ApplicationRecord
     belongs_to :employee
 end
