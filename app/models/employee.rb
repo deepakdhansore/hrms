@@ -3,16 +3,18 @@ class Employee < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
- 
-  has_many :leaves
- 
-  has_many :attendances
+  # Assosiated model
+     has_one :department
+     has_many :leaves
+     has_many :attendances
+     has_many :salaries
+  # Add dynamic value in employee db
+     
+     enum gender: [ :male, :female ]
+     enum martial_status: [:maried ,:unmaried]
 
-  has_many :salaries
+  # Validation
  
-  enum gender: [ :male, :female ]
-  enum martial_status: [:maried ,:unmaried]
+    
 
-  
 end
