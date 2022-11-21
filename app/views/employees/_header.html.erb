@@ -1,0 +1,11 @@
+ <p class="navbar-text float-right">
+    <% if employee_signed_in? %>
+   <%= image_tag 'https://portal.bestpeers.com/assets/logo-5ad34b8a8c371dbc53c87b3a4805510b0cf5ed302900d987327c4306a6b10e41.png',height: 30%>
+
+     <strong> Dashboard </strong>
+      Email: <strong><%= current_employee.email%></strong>
+      <%= link_to 'Edit profile', edit_employee_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_employee_session_path, method: :delete, :class => 'navbar-link'  %>
+
+    <% end %>
+    </p>

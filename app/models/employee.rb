@@ -5,9 +5,9 @@ class Employee < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # Assosiated model
      has_one :department
-     has_many :leaves
-     has_many :attendances
-     has_many :salaries
+     has_many :leaves,  dependent: :destroy
+     has_many :attendances , dependent: :destroy
+     has_many :salaries, dependent: :destroy
   # Add dynamic value in employee db
      
      enum gender: [ :male, :female ]
@@ -15,6 +15,8 @@ class Employee < ApplicationRecord
 
   # Validation
  
-    
+  validates :first_name,:last_name,:father_name,:mother_name, presence: true
+  
 
 end
+
