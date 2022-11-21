@@ -1,3 +1,3 @@
 class Department < ApplicationRecord
-    has_many :employee_details
+    belongs_to :employee
 end

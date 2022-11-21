@@ -1,2 +1,0 @@
-class Hr < Department
-end
