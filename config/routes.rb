@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  
+ 
+
+  root 'employees#index'
+
 
   devise_for :employees, controllers: { sessions: 'employees/sessions' }
 
+  root 'employees#index'
 
   devise_scope :employees do
     get 'sign_in', to: 'devise/sessions#new'

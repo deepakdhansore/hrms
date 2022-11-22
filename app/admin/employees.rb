@@ -5,7 +5,7 @@ ActiveAdmin.register Employee do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :first_name, :last_name, :phone_number, :address, :email, :password, :gender, :age, :hire_date, :date_of_birth, :reset_password_token, :reset_password_sent_at, :remember_created_at, :city, :country, :martial_status, :father_name, :mother_name
+  permit_params  :designation,:department_id,:first_name, :last_name, :phone_number, :address, :email, :password, :gender, :age, :hire_date, :date_of_birth, :reset_password_token, :reset_password_sent_at, :remember_created_at, :city, :country, :martial_status, :father_name, :mother_name
   #
   # or
   #
@@ -34,6 +34,8 @@ ActiveAdmin.register Employee do
       f.input :last_name
       f.input :father_name 
       f.input :mother_name 
+      f.input :department
+      f.input :designation
       f.input :phone_number
       f.input :address 
       f.input :email

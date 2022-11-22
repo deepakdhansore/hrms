@@ -16,4 +16,9 @@ ActiveAdmin.register Leave do
   #   permitted
   # end
   
+
+  filter :employee
+  
+  
+  
 end
