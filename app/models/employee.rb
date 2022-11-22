@@ -4,7 +4,7 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # Assosiated model
-     has_one :department
+     belongs_to :department
      has_many :leaves,  dependent: :destroy
      has_many :attendances , dependent: :destroy
      has_many :salaries, dependent: :destroy
