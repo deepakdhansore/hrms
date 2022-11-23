@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221122130659) do
+ActiveRecord::Schema.define(version: 20221123071457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20221122130659) do
     t.datetime "date"
     t.datetime "time_in"
     t.datetime "time_out"
-    t.integer  "working_hour"
+    t.datetime "working_hour"
     t.index ["employee_id"], name: "index_attendances_on_employee_id", using: :btree
   end
 
@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 20221122130659) do
     t.boolean  "is_admin"
     t.integer  "department_id"
     t.string   "designation"
+    t.float    "current_salary"
+    t.integer  "allowed_leaves"
     t.index ["department_id"], name: "index_employees_on_department_id", using: :btree
     t.index ["email"], name: "index_employees_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree

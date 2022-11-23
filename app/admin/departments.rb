@@ -15,5 +15,6 @@ ActiveAdmin.register Department do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  filter :name 
   
 end

@@ -5,7 +5,7 @@ ActiveAdmin.register Salary do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :fromdate, :todate, :salary, :employee_id
+  permit_params :fromdate, :todate, :salary, :employee_id
   #
   # or
   #
@@ -14,5 +14,28 @@ ActiveAdmin.register Salary do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  index do
+    selectable_column
+   
+    column :employee
+    column :fromdate
+    column :todate
+    column :salary
+   
+
+    actions
+  end
+
+  filter :employee
+  filter :fromdate
+ 
+  form do |f|
+    f.inputs 'Salary' do
+    f.input :employee
+    f.input :fromdate,  :as => :datepicker
+    f.input :todate,  :as => :datepicker
+    f.input :salary
+   end
+  f.actions 
+  end
 end
