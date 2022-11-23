@@ -1,10 +1,4 @@
 <%= render "employees/header"%>
 
-<h1>Employee</h1>
-    
-    <%= link_to "Personal Detail",  employee_path(@employee) %>
-    
-    <%= link_to "Apply for leave",  new_employee_leave_path(@employee)%>
-  
-
+<%= link_to 'Submit your status', new_employee_attendance_path(current_employee.id) %>
 

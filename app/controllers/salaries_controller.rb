@@ -1,0 +1,3 @@
+class SalariesController < ApplicationController
+    
+end

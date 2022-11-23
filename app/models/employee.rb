@@ -14,9 +14,11 @@ class Employee < ApplicationRecord
      enum martial_status: [:maried ,:unmaried]
 
   # Validation
- 
-  validates :first_name,:last_name,:father_name,:mother_name, presence: true
-  
-
+   
+    validates :first_name,:last_name,:father_name,:mother_name, presence: true
+    
+    def to_s
+      "#{email}"
+    end
 end
 

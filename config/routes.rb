@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   
  
 
-  root 'employees#index'
+  
+    resources :employees do
+      resources :attendances
+    end
+    
+  
+
+  
 
 
   devise_for :employees, controllers: { sessions: 'employees/sessions' }
