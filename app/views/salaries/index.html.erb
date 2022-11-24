@@ -1,0 +1,17 @@
+<h1>Salary Status</h1>
+<table>
+<th> <strong>Start Date</strong></th>
+ <th> <strong>End Date</strong></th>
+ <th><strong>Salary</strong></th>
+ 
+ 
+<% @salary.each do |salary|%>
+ 
+ <tr>
+   <td> <%= salary.fromdate %></td>
+   <td><%= salary.todate %></td>
+  <td><%= salary.salary %></td>
+  
+ </tr>
+<% end %>
+</table>

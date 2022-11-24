@@ -1,7 +1,20 @@
 <h1>Send Daily Status</h1>
-<%= form_for @employee do |form| %>
- 
+<%=  form_for [@employee,@employee.attendances.build] do |f| %>
   <p>
-    <%= form.submit %>
+    <%= f.label :date ,"Status Date" %>
+    <%= f.date_field :date %>
+  </p>
+  
+  <p>
+    <%= f.label :time_in ,"In Time" %>
+    <%= f.time_field :time_in %>
+  </p>
+ <p>
+    <%= f.label :time_out ,"Out Time" %>
+    <%= f.time_field :time_out %>
+  </p>
+  
+  <p>
+    <%= f.submit "Send" %>
   </p>
 <% end %>

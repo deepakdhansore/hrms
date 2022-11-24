@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221123071457) do
+ActiveRecord::Schema.define(version: 20221124084104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,13 +42,13 @@ ActiveRecord::Schema.define(version: 20221123071457) do
   end
 
   create_table "attendances", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "employee_id"
-    t.datetime "date"
-    t.datetime "time_in"
+    t.datetime "total_hour"
     t.datetime "time_out"
-    t.datetime "working_hour"
+    t.datetime "time_in"
+    t.datetime "date"
     t.index ["employee_id"], name: "index_attendances_on_employee_id", using: :btree
   end
 
