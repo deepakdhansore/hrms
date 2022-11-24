@@ -3,7 +3,10 @@ class Salary < ApplicationRecord
   
   validates :fromdate,:todate, presence: true
   validates :salary, presence: true 
-  
+
+  def self.listing(salary)
+    order(created_at: :desc)
+  end
  # before_create :count_salary
 
  #def count_salary

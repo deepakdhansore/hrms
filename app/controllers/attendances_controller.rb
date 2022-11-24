@@ -1,15 +1,18 @@
 class AttendancesController < ApplicationController
-    def new
-        
-    end
-    def create
-        @employee = current_employee.id
-        @attendance = @employee.attendances.create(attendance_params)
-       redirect_to article_path(@article)
-    end
+   
+  def new
+     @employee = Employee.find(params[:employee_id])
+  end
+  
+  def create
+    @employee = Employee.find(params[:employee_id])
+    @attendance = @employee.attendances.create(attendance_params)
+    redirect_to employees_path
 
-private
-def attendance_params
-    params.require(:attendance).permit(:time_in, :time_out, :date)
-end
+  end
+  
+  private
+   def attendance_params
+    params.require(:attendance).permit(:time_in, :time_out, :date, :total_hour)
+   end
 end
