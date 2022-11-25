@@ -1,0 +1,24 @@
+<h1>Apply Leave</h1>
+<%= form_for [@employee,@employee.leaves.build] do |f| %>
+ <p>
+    <%= f.label :startdate ,"From Date" %>
+    <%= f.date_field :startdate %>
+  </p>
+   <p>
+    <%= f.label :endtdate ,"To Date" %>
+    <%= f.date_field :enddate %>
+  </p>
+  <p>
+    <%= f.label :reason,"Reason" %><br>
+    <%= f.text_field :reason %>
+  </p>
+   <p>
+    <%= f.label :days,"Days" %><br>
+    <%=  %>
+  </p>
+
+  <p>
+    <%= f.submit "Send" %>
+  </p>
+
+<% end %>

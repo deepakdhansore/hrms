@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221124084104) do
+ActiveRecord::Schema.define(version: 20221125100227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,9 +93,11 @@ ActiveRecord::Schema.define(version: 20221124084104) do
     t.datetime "startdate"
     t.datetime "enddate"
     t.string   "reason"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "employee_id"
+    t.integer  "days"
+    t.integer  "total_leaves"
     t.index ["employee_id"], name: "index_leaves_on_employee_id", using: :btree
   end
 

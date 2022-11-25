@@ -17,5 +17,8 @@ Rails.application.routes.draw do
   resources :employees do
     resources :salaries
   end
+  resources :employees do
+    resources :leaves
+  end
   root 'employees#index'
 end
