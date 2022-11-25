@@ -17,6 +17,8 @@ class Employee < ApplicationRecord
    
     validates :first_name,:last_name,:father_name,:mother_name, presence: true
     
+  
+    
     def to_s
       "#{email}"
     end

@@ -1,9 +1,11 @@
 <%= render "employees/header"%>
-<%= link_to 'Personal Details', employee_path(@employee) %>
-<%= link_to 'Submit Daily status',new_employee_attendance_path(@employee) %>
-<%= link_to 'View Salary Status', employee_salaries_path(@employee) %>
-<%= link_to 'Check Leaves', employee_salaries_path(@employee) %>
+ <div>
+    <%= link_to 'Personal Details', employee_path(@employee) %>
+    <%= link_to 'Submit Daily status',new_employee_attendance_path(@employee) %>
+    <%= link_to 'View Salary Status', employee_salaries_path(@employee) %>
+    <%= link_to 'Check Leaves', employee_leaves_path(@employee) %>
 
+    </div>
 <br>
 <table>
 <th> <strong>Status Date</strong></th>
@@ -14,10 +16,11 @@
 <% @employee.attendances.each do |status|%>
  
  <tr>
-   <td> <%= status.date  %></td>
-   <td><%= status.time_in %></td>
-  <td><%= status.time_out %></td>
-   <td>:<%= status.total_hour %></td>
+ 
+   <td> <%= status.date.strftime("%d/%m/%Y")  %></td>
+   <td><%= status.time_in.strftime("%H:%M") %></td>
+  <td><%= status.time_out.strftime("%H:%M") %></td>
+   <td>:<%= status.total_hour.strftime("%H:%M") %></td>
  </tr>
 <% end %>
 </table>

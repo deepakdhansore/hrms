@@ -1,3 +1,5 @@
+<%= render "employees/header"%>
+ 
 <h1>Salary Status</h1>
 <table>
 <th> <strong>Start Date</strong></th>
@@ -8,8 +10,8 @@
 <% @salary.each do |salary|%>
  
  <tr>
-   <td> <%= salary.fromdate %></td>
-   <td><%= salary.todate %></td>
+   <td> <%= salary.fromdate.strftime("%d/%m/%Y") %></td>
+   <td><%= salary.todate.strftime("%d/%m/%Y") %></td>
   <td><%= salary.salary %></td>
   
  </tr>

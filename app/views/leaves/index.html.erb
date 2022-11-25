@@ -1,0 +1,32 @@
+<h1>Leaves Status</h1>
+<h2>Current Date :   <%= Time.now.strftime("%d-%m-%Y")%></h2>
+<h3> <b>Allowed Leaves :</b>    <%= current_employee.allowed_leaves %> || 
+ <b> Leaves Taken :</b>  <%= @leave.where(startdate:(Date.today.at_beginning_of_month)..(Date.today.at_end_of_month)).sum(:days)%>  </h3>
+
+<h3> <b>Unpaid Leaves :</b>    <%= current_employee.allowed_leaves -  @leave.where(startdate:(Date.today-30.days)..(Date.today)).count %> ||
+<b> Paid Leaves :</b>    <%= @leave.where(startdate:(Date.today.at_beginning_of_month)..(Date.today.at_end_of_month)).sum(:days)  - current_employee.allowed_leaves  %>  </h2> </h2>
+
+
+<h4> <%=  link_to "Apply Leave", new_employee_leave_path(@employee) %> </h4>
+
+<table>
+<h2>All leaves of <%= current_employee.first_name%>   <%= current_employee.last_name%> </h2>
+<th> <strong>From Date</strong></th>
+ <th> <strong>To Date</strong></th>
+ <th><strong>Reason</strong></th>
+ <th>Days</th>
+ 
+<% @employee.leaves.each do |status|%>
+ 
+ <tr>
+ 
+   <td> <%= status.startdate.strftime("%d/%m/%Y")  %></td>
+   <td><%= status.enddate.strftime("%d/%m/%Y") %></td>
+  <td><%= status.reason%></td>
+  <td><%= status.days%></td>
+ 
+  
+  
+ </tr>
+<% end %>
+</table>

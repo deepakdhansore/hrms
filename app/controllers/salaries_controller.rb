@@ -1,5 +1,6 @@
 class SalariesController < ApplicationController
     def index 
-      @salary = Salary.listing(params[:fromdate])
+      @employee = current_employee
+      @salary = @employee.salaries.listing(params[:fromdate])
     end
 end
