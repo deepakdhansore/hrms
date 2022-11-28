@@ -16,7 +16,7 @@ ActiveAdmin.register Attendance do
     column :date
     column :time_in
     column :time_out
-    column :working_hour
+    column :total_hour
 
     actions
   end

@@ -9,8 +9,5 @@ class Leave< ApplicationRecord
     def count_days
         leave = (enddate.to_date - startdate.to_date).to_i
         self.days = leave
-        self.total_leaves = leave
     end
-    
-
 end

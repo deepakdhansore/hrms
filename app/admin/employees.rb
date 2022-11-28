@@ -46,7 +46,9 @@ ActiveAdmin.register Employee do
       f.input :hire_date, :as => :datepicker
       f.input :city 
       f.input :country, :as => :string
+      f.input :allowed_leaves
       f.input :password
+
       
     end
     f.actions 

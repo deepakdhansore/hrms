@@ -1,3 +1,5 @@
+<%= render "employees/header"%>
+ 
 <h1>Apply Leave</h1>
 <%= form_for [@employee,@employee.leaves.build] do |f| %>
  <p>
@@ -12,11 +14,7 @@
     <%= f.label :reason,"Reason" %><br>
     <%= f.text_field :reason %>
   </p>
-   <p>
-    <%= f.label :days,"Days" %><br>
-    <%=  %>
-  </p>
-
+ <br>
   <p>
     <%= f.submit "Send" %>
   </p>
