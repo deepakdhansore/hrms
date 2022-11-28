@@ -1,13 +1,14 @@
 <%= render "employees/header"%>
- <div>
-    <%= link_to 'Personal Details', employee_path(@employee) %>
-    <%= link_to 'Submit Daily status',new_employee_attendance_path(@employee) %>
-    <%= link_to 'View Salary Status', employee_salaries_path(@employee) %>
-    <%= link_to 'Check Leaves', employee_leaves_path(@employee) %>
+ <div class='navbar'>
+  ||  <%= link_to 'Personal Details', employee_path(@employee) %>  ||
+    <%= link_to 'Submit Daily status',new_employee_attendance_path(@employee) %>  ||
+    <%= link_to 'View Salary Status', employee_salaries_path(@employee) %>  ||
+    <%= link_to 'Check Leaves', employee_leaves_path(@employee) %> 
 
     </div>
 <br>
 <table>
+<h2>All Status</h2>
 <th> <strong>Status Date</strong></th>
  <th> <strong>In Time</strong></th>
  <th><strong>Out Time</strong></th>

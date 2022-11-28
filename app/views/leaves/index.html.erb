@@ -1,3 +1,5 @@
+<%= render "employees/header"%>
+ 
 <h1>Leaves Status</h1>
 <h2>Current Date :   <%= Time.now.strftime("%d-%m-%Y")%></h2>
 <h3> <b>Allowed Leaves :</b>    <%= current_employee.allowed_leaves %> || 
@@ -23,8 +25,8 @@
    <td> <%= status.startdate.strftime("%d/%m/%Y")  %></td>
    <td><%= status.enddate.strftime("%d/%m/%Y") %></td>
   <td><%= status.reason%></td>
-  <td><%= status.days%></td>
- 
+  <td><%= status.days %></td>
+  
   
   
  </tr>

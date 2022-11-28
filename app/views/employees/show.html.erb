@@ -1,13 +1,35 @@
 <%= render "employees/header"%>
 <h1>Personal Details</h1>
  
-  
+  <div>
+  <h2>Personal Information </h2>
   <h3><b>First Name :</b><%= @employee.first_name%> </h3>
   <h3><b>Last Name :</b><%= @employee.last_name%> </h3>
   <h3><b>Father's Name :</b><%= @employee.father_name%> </h3>
   <h3><b>Mother's Name :</b><%= @employee.mother_name%> </h3>
+   <h3><b>Age :</b> <%= @employee.age%></h3> 
+  <h3><b>Gender :</b> <%= @employee.gender%></h3> 
+  <h3><b>Date of Birth :</b> <%= @employee.date_of_birth.strftime("%d/%m/%Y")%></h3> 
+  <h3><b>Martial Status :</b> <%= @employee.martial_status%></h3> 
+</div>
+<br>
+<div>
+ <h2>Contact Information </h2>
   <h3><b>Email :</b> <%= @employee.email%></h3> 
-  <h3><b>Email :</b> <%= @employee.email%></h3> 
-  <h3><b>Email :</b> <%= @employee.email%></h3> 
+  <h3><b>Contact :</b> <%= @employee.phone_number%></h3> 
+ </div>
+ <br>
+<div>
+ <h2>Company Information </h2>
+  <h3><b>Department Name :</b> <%= @employee.department.name %></h3> 
+  <h3><b>Hire Date :</b> <%= @employee.hire_date.strftime("%d/%m/%Y")%></h3> 
+  <h3><b>Designation :</b> <%= @employee.designation%></h3> 
+</div>  
+<div>
+ <h2>Address Information </h2>
+  <h3><b>City :</b> <%= @employee.city%></h3> 
+  <h3><b>Country :</b> <%= @employee.country%></h3> 
+  <h3><b>Permanent Address :</b> <%= @employee.address%></h3> 
+</div>
  
 
