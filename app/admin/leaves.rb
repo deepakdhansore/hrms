@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Leave do
   config.clear_action_items!
   actions :index, :show
@@ -22,14 +24,10 @@ ActiveAdmin.register Leave do
     column :startdate
     column :enddate
     column :reason
-    
 
     actions
   end
 
   filter :employee
   filter :startdate
-  
-  
-  
 end

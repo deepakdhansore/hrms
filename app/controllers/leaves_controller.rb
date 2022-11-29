@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class LeavesController < ApplicationController
   def index
     @employee = current_employee
     @leave = @employee.leaves.all
-  end  
-  
+  end
+
   def new
     @employee = current_employee
   end
@@ -12,11 +14,11 @@ class LeavesController < ApplicationController
     @employee = current_employee
     @leave = @employee.leaves.create(leave_params)
     redirect_to employee_leaves_path(@employee)
-
-
   end
+
   private
+
   def leave_params
-   params.require(:leave).permit(:startdate, :enddate, :reason)
+    params.require(:leave).permit(:startdate, :enddate, :reason)
   end
 end

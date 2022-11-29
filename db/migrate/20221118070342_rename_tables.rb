@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameTables < ActiveRecord::Migration[5.0]
   def change
     rename_table :emp_attendances, :attendances
