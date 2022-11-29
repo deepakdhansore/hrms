@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveColumnfromEmpLeavesAndEmpAttendences < ActiveRecord::Migration[5.0]
   def change
     remove_column :emp_attendances, :employee_detail_id, index: true

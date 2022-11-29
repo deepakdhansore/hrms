@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Department do
   config.clear_action_items!
-  
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name
+  permit_params :name
   #
   # or
   #
@@ -15,6 +17,5 @@ ActiveAdmin.register Department do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  filter :name 
-  
+  filter :name
 end

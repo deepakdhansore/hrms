@@ -14,7 +14,7 @@
  <th><strong>Out Time</strong></th>
  <th><strong>Total Hours</strong></th>
  
-<% @employee.attendances.each do |status|%>
+<% @employee.attendances.listing(:date).each do |status|%>
  
  <tr>
  
