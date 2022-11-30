@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# app/models/salary.rb
 class Salary < ApplicationRecord
   belongs_to :employee
 

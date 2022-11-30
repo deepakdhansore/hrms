@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
+# app/models/attendance.rb
 class Attendance < ApplicationRecord
-  before_save :count_total_hour
-
   belongs_to :employee
 
-  # validation
-  validates :date, :time_in, :time_out, presence: true
-  validates :date, uniqueness: { scope: :employee_id }
-  # call back
+  validates :time_in, :time_out, presence: true
+  validates :date, presence: true, uniqueness: { scope: :employee_id }
+  before_save :count_total_hour
 
-  def self.listing(_attendance)
+  def self.listing(attendance)
     order(date: :desc)
   end
 
@@ -24,4 +22,3 @@ class Attendance < ApplicationRecord
     self.total_hour = self.total_hour.strftime('%H:%M')
   end
 end
-# Employee.first.attendances.create!(date:Date.parse("2022-11-24"),time_in:Time.zone.parse("9:00 AM"),time_out:Time.zone.parse("7:00 PM"))
