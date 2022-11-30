@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# app/controllers/attendances_controller.rb
 class AttendancesController < ApplicationController
   def new
     @employee = Employee.find(params[:employee_id])

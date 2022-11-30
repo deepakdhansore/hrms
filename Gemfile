@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 gem 'activeadmin'
 gem 'devise'
-em 'rubocop', require: true
+gem 'rubocop', require: true
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 # Use postgresql as the database for Active Record
@@ -42,6 +42,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do

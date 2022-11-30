@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Employee do
-  permit_params :designation, :department_id, :first_name, :last_name, :phone_number,
-                :address, :email, :password, :gender, :age, :hire_date, :date_of_birth,
-                :reset_password_token, :reset_password_sent_at, :remember_created_at,
-                :city, :country, :martial_status, :father_name, :mother_name
+  permit_params :first_name, :last_name, :father_name, :mother_name, :address, :email, :country,
+                :password, :gender, :hire_date, :date_of_birth, :martial_status,
+                :designation, :department_id, :phone_number, :city
 
   index do
-    selectable_column
     id_column
-    column :first_name
+    column :first_names
     column :last_name
     column :email
     column :hire_date
@@ -29,7 +27,6 @@ ActiveAdmin.register Employee do
       f.input :phone_number
       f.input :address
       f.input :email
-      f.input :age
       f.input :gender, as: :radio
       f.input :martial_status, as: :radio
       f.input :date_of_birth, as: :datepicker

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# app/controllers/leaves_controller.rb
 class LeavesController < ApplicationController
   def index
     @employee = current_employee

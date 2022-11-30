@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# app/controllers/employees_controller.rb
 class EmployeesController < ApplicationController
   before_action :authenticate_employee!
 
