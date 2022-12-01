@@ -16,9 +16,10 @@ class Attendance < ApplicationRecord
 
   def count_total_hour
     return unless total_hour.blank?
-
-    total_hour = (time_out - time_in)
-    self.total_hour = Time.at(total_hour)
-    self.total_hour = self.total_hour.strftime('%H:%M')
+      if time_in.present? && time_out.present?
+       total_hour = (time_out - time_in)
+      self.total_hour = Time.at(total_hour)
+      self.total_hour = self.total_hour.strftime('%H:%M')
+      end
   end
 end
