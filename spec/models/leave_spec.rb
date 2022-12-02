@@ -5,7 +5,6 @@ require 'rails_helper'
 require 'shoulda-matchers'
 
 RSpec.describe Leave, type: :model do
-  
   describe 'Association' do
     context 'check belongs_to association' do
       it { should belong_to(:employee) }
@@ -14,11 +13,9 @@ RSpec.describe Leave, type: :model do
 
   describe 'Validations' do
     context 'validation for presence' do
-        %i[startdate enddate reason].each do |field|
+      %i[startdate enddate reason].each do |field|
         it { is_expected.to validate_presence_of(field) }
-        end
       end
+    end
   end
-
-
 end
