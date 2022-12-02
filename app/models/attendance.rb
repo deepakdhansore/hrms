@@ -8,7 +8,7 @@ class Attendance < ApplicationRecord
   validates :date, presence: true, uniqueness: { scope: :employee_id }
   before_save :count_total_hour
 
-  def self.listing(attendance)
+  def self.listing(_attendance)
     order(date: :desc)
   end
 
@@ -16,10 +16,11 @@ class Attendance < ApplicationRecord
 
   def count_total_hour
     return unless total_hour.blank?
-      if time_in.present? && time_out.present?
-       total_hour = (time_out - time_in)
-      self.total_hour = Time.at(total_hour)
-      self.total_hour = self.total_hour.strftime('%H:%M')
-      end
+
+    return unless time_in.present? && time_out.present?
+
+    total_hour = (time_out - time_in)
+    self.total_hour = Time.at(total_hour)
+    self.total_hour = self.total_hour.strftime('%H:%M')
   end
 end

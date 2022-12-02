@@ -1,12 +1,53 @@
- <p class="navbar-text float-right">
-    <% if employee_signed_in? %>
-   <%= image_tag 'https://portal.bestpeers.com/assets/logo-5ad34b8a8c371dbc53c87b3a4805510b0cf5ed302900d987327c4306a6b10e41.png',height: 30%>
+<nav class="navbar bg-light ">
 
-     <strong> Dashboard </strong>
-      Email: <strong><%= current_employee.email%></strong>
-      <%= link_to 'Edit profile', edit_employee_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_employee_session_path, method: :delete, :class => 'navbar-link'  %>
+  <!-- Links -->
+   <% if employee_signed_in? %>
+   <li class="navbar-brand ">
+      <%= image_tag 'https://portal.bestpeers.com/assets/logo-5ad34b8a8c371dbc53c87b3a4805510b0cf5ed302900d987327c4306a6b10e41.png',height: 30%>
 
-    <% end %>
-    </p>
+     <strong style='font-size:20px'> Dashboard </strong>
+    </li>
+        <ul class="navbar-nav navbar-expand-lg">
+
+        
+        <li class="nav-item"><%= link_to 'Personal Details', employee_path(@employee) %></li>  ||
+         <li class="nav-item"><%= link_to 'Submit Daily status',new_employee_attendance_path(@employee) %>  </li>||
+         <li class="nav-item"><%= link_to 'View Salary Status', employee_salaries_path(@employee) %>  </li> ||
+         <li class="nav-item"><%= link_to 'Check Leaves', employee_leaves_path(@employee) %> </li>||
+         <li class="nav-item"> <strong><%= current_employee.email%></strong></li>
+         <li class="nav-item">  <%= link_to 'Edit profile', edit_employee_registration_path %></li>
+         <li class="nav-item"><%= link_to "Logout", destroy_employee_session_path, method: :delete %></li>
+       </ul>
+
+</nav>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
    
+   
+      
+      
+     
+      
+    
+    <% end %>
+
+    

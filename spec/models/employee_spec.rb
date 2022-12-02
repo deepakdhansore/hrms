@@ -16,16 +16,15 @@ RSpec.describe Employee do
   describe 'Assosiations' do
     context 'check has many assosiations' do
       %i[attendances leaves salaries].each do |models|
-        it 'has many #{models}' do
+        it "has many #{models}" do
           relation = described_class.reflect_on_association(models)
           expect(relation.macro).to eq :has_many
         end
       end
     end
-    
+
     context 'check belongs_to association' do
       it { should belong_to(:department) }
     end
-  
   end
 end
