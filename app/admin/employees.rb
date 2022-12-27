@@ -43,7 +43,6 @@ ActiveAdmin.register Employee do
   
     def create
       @user  = Employee.new(user_params)
-      byebug
       if @user.save
         UserMailer.welcome_email(@user).deliver_now 
         redirect_to admin_employees_path  
