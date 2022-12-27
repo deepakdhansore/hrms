@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -10,10 +10,11 @@ end
 gem 'activeadmin'
 gem 'bootstrap', '~> 4.0.0'
 gem 'devise'
-gem 'jquery-rails'
+gem 'rexml'
+#gem 'jquery-rails'
 gem 'rubocop', require: true
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
+gem 'rails', '~> 	7.0.1', '>= 	7.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -45,7 +46,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
+  gem 'faker'
   gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
+ gem "letter_opener", group: :development
 end
 
 group :development do

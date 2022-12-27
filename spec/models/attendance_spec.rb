@@ -22,4 +22,20 @@ RSpec.describe Attendance, type: :model do
       it { is_expected.to validate_uniqueness_of(:date).scoped_to(:employee_id) }
     end
   end
+
+  context 'count total hour' do
+  let(:attendance) {create(:attendance)}
+
+   it"count the total hour" do
+    time_in.present? && time_out.present?
+
+    total_hour = (time_out - time_in)
+    self.total_hour = Time.at(total_hour)
+    self.total_hour = self.total_hour.strftime('%H:%M')
+    expect(total_hour)
+   end
+
+
+  end
+
 end

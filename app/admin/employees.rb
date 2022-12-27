@@ -2,12 +2,12 @@
 
 ActiveAdmin.register Employee do
   permit_params :first_name, :last_name, :father_name, :mother_name, :address, :email, :country,
-                :password, :gender, :hire_date, :date_of_birth, :martial_status,
+                :password, :gender, :hire_date, :date_of_birth, :martial_status,:allowed_leaves,
                 :designation, :department_id, :phone_number, :city
 
   index do
     id_column
-    column :first_names
+    column :first_name
     column :last_name
     column :email
     column :hire_date
@@ -38,4 +38,23 @@ ActiveAdmin.register Employee do
     end
     f.actions
   end
+
+  controller do
+  
+    def create
+      @user  = Employee.new(user_params)
+      byebug
+      if @user.save
+        UserMailer.welcome_email(@user).deliver_now 
+        redirect_to admin_employees_path  
+      end
+    end
+
+    def user_params
+      params.require(:employee).permit(:first_name, :last_name, :father_name, :mother_name, :address, :email, :country,
+        :password, :gender, :hire_date, :date_of_birth, :martial_status,
+        :designation, :department_id, :phone_number, :city, :allowed_leaves)
+    end
+  end
+
 end

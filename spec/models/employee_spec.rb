@@ -27,4 +27,6 @@ RSpec.describe Employee do
       it { should belong_to(:department) }
     end
   end
+
+  
 end
